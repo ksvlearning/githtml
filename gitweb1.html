@@ -1,0 +1,530 @@
+<html>
+
+<head>
+    <title>Try Something</title>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        .stick {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #top {
+            text-decoration: none;
+            max-width: 100%;
+            background-color: grey;
+            height: 50px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #top a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .olist {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .olist li:hover {
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdowncntnt {
+            display: none;
+            position: absolute;
+            top: 40px;
+            background-color: rgb(170, 255, 1);
+            min-width: 120px;
+            height: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            margin: 5px;
+        }
+
+        .dropdowncntnt a {
+            color: rgb(8, 172, 248);
+            margin-top: 22px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-content: space-around;
+        }
+
+        .dropdowncntnt a:hover {
+            background-color: blue;
+        }
+
+        .dropdown:hover .dropdowncntnt {
+            display: block;
+        }
+
+        #p {
+            background-color: gold;
+            text-align: center;
+            height: 40px;
+            color: rgb(30, 24, 24);
+            padding-top: 20px;
+            outline: 2px solid rgb(19, 2, 2);
+            outline-offset: 6px;
+            font-weight: bolder;
+        }
+
+        p.para {
+            background-color: rgba(208, 25, 50, 0.6);
+            border-style: solid;
+            border-width: 5px;
+            border-color: black;
+            padding: 10px;
+            overflow: scroll;
+            width: 80%;
+            height: 200px;
+        }
+
+        .rgf {
+            background-color: teal;
+            padding-top: 20px;
+            padding-left: 45px;
+        }
+
+        #textt {
+            border: 2px double rgb(9, 10, 9);
+            text-align: center;
+            color: rgb(39, 20, 212);
+            text-shadow: 4px 4px 2px rgb(143, 143, 143);
+            padding: 15px;
+            font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 500px;
+        }
+
+        img {
+
+            border: 2px solid black;
+            /* position: -webkit-sticky;
+            position: sticky; */
+            top: 0;
+            left: 600px;
+            height: 200px;
+            width: 400px;
+        }
+
+        span {
+            color: rgb(232, 20, 20);
+            font-weight: 1000;
+        }
+
+        div img {
+            width: 400px;
+            height: 400px;
+            opacity: 0.6;
+            position: static;
+        }
+
+        #position {
+            position: relative;
+        }
+
+        .position2 {
+            top: 20px;
+            left: 50px;
+            font-size: 25px;
+            color: red;
+            position: absolute;
+        }
+
+
+        #container {
+            width: 50%;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+
+        div ol {
+            list-style-type: decimal-leading-zero;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        #container {
+            width: 25%;
+            height: 50px;
+        }
+
+        #container a {
+            text-decoration: none;
+            color: rgb(236, 18, 145);
+            background-color: rgb(149, 255, 0);
+        }
+
+        #container a:hover {
+            text-decoration: underline;
+            color: rgb(251, 6, 198);
+            background-color: rgb(0, 204, 255);
+        }
+
+        #submitt {
+            background-color: darksalmon;
+            color: rgb(38, 218, 218);
+            height: 25px;
+            width: 80px;
+            padding: auto;
+            border-radius: .3em;
+        }
+
+        #submitt:hover {
+            background-color: rgb(45, 226, 208);
+            color: rgb(65, 68, 241);
+            transition: 5s 2;
+        }
+
+        .float {
+            border: 2px solid green;
+            overflow: auto;
+        }
+
+        .float img {
+            width: 100px;
+            height: 100px;
+            float: right;
+            clear: right;
+        }
+
+        .selected::after {
+            content: " ADDED";
+
+        }
+
+        .selected::selection {
+            background-color: yellow;
+            color: red;
+        }
+
+        .opacity img {
+            opacity: 0.6;
+        }
+
+        .opacity img:hover {
+            opacity: 1;
+        }
+
+        .imggallery {
+            margin: 5px;
+            border: 5px solid #d52424;
+            float: left;
+            width: 280px;
+            height: 200px;
+        }
+
+        .imggallery img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        .imggallery p {
+            text-align: center;
+        }
+
+        .marq {
+            height: 50px;
+            color: darkblue;
+            padding-top: 12px;
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+
+
+        /* Media Query */
+        @media screen and (max-width:480px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #top {
+                width: 480px;
+                height: 120px;
+                background-color: bisque;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .dropdowncntnt {
+                display: none;
+                position: absolute;
+                top: 70px;
+                background-color: rgb(170, 255, 1);
+                min-width: 100px;
+                height: 120px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 99;
+                margin: 2px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--fontawesome-->
+</head>
+
+<body>
+    <div class="stick">
+        <div id="top">
+            <h4>HTML & CSS</h4>
+            <ol class="olist">
+                <li><a href="#">Home</a></li>
+                <li><a href="Trycss2about.html">About</a></li>
+                <li><a href="#">Contact Us</a>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="Loginform.html">Login</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbn">Dropdown </i></a>
+                    <div class="dropdowncntnt">
+                        <a href="https://www.google.com" target="_blank">Link 1</a>
+                        <a href="https://www.google.com" target="_top">Link 2</a>
+                        <a href="https://www.google.com" target="_self">Link 3</a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <br><br>
+    <p id="p">
+        Sample Webpage Using HTML and CSS
+    </p>
+    <br><br>
+    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, quaerat repellendus! Quae
+        animiea reprehenderit praesentium sit minima
+        consectetur provident soluta autem laudantium cupiditate quam, veritatis, reiciendis sunt velit hic!Lorem ipsum,
+        dolor sit amet consectetur
+        adipisicing elit. Facere, eum ipsum, nemo officia incidunt rerum cupiditate consectetur corrupti nihil assumenda
+        nam quae. Magnam voluptas quia
+        soluta dolorum animi ab repellat Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam eos, quo,
+        cum veritatis vitae, nostrum rerum molestiae ad eligendi odit officia nihil provident facilis? Facilis, facere!
+        Optio ea molestiae saepe.
+        Nemo voluptatibus perferendis, illum alias voluptate cum rem porro eos dolore. Beatae optio dicta quisquam
+        numquam tenetur, eligendi nesciunt minima
+        porro corporis autem dolores suscipit sint, natus sunt mollitia consequuntur? Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Ipsa delectus dolores dolorem? Itaque illum quibusdam debitis minus voluptatum
+        ipsum delectus tempore, pariatur, vel ab laborum officiis quas commodi, quae provident!
+        Similique commodi, est nemo recusandae velit fuga beatae? Commodi consectetur laborum ducimus rerum voluptate
+        quos animi similique amet accusantium, voluptates ipsa nostrum illum dolorum dolore placeat aspernatur voluptas,
+        consequuntur praesentium?
+        Vitae excepturi molestias labore reprehenderit esse doloremque magni libero suscipit error quaerat deserunt
+        voluptate eos adipisci eaque itaque dolorem dicta eum, recusandae accusamus quidem consequuntur ad illum,
+        perspiciatis autem? Beatae.
+        Reprehenderit nisi aperiam dolore ut dicta harum alias maiores praesentium quas tenetur eius tempora magnam odit
+        dolor unde pariatur reiciendis, placeat, quod mollitia corrupti. Est, necessitatibus vitae! Neque, quidem amet.
+        Illum ducimus qui ipsam dicta quibusdam suscipit tempora nemo repudiandae similique provident error recusandae
+        odio animi dolor impedit eum, quaerat sint laboriosam debitis inventore tenetur corporis placeat? Aliquam,
+        tempore tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis reiciendis iure molestiae cum
+        quas quidem, facilis expedita, nemo rem laudantium saepe ex ipsam! Ab aliquam iure, illum illo repellat vero.
+        Reiciendis distinctio non dolore quos corporis vero ea qui aspernatur facilis minus architecto explicabo odit
+        quia, numquam asperiores, molestias repellat! Totam omnis aliquid possimus odit doloremque deserunt laudantium
+        fugit vel!
+        Doloremque numquam accusamus modi mollitia tempore accusantium, explicabo illum rem minima quos quod assumenda
+        aperiam soluta ad reiciendis placeat vero esse delectus repellendus voluptatibus quidem consequatur recusandae.
+        Fuga, expedita obcaecati?
+        Blanditiis non quas fugit dicta quaerat rerum commodi corporis? Ipsum dolorum sint est, dolores consequatur,
+        temporibus vel quisquam praesentium officiis porro iure eaque, optio sunt sit reprehenderit blanditiis dolor
+        architecto!
+        A maxime numquam hic placeat, nisi facilis officiis ipsam similique autem enim. Officia dolores placeat impedit
+        sint quam consequatur labore quasi iure, porro facere repudiandae laborum soluta officiis asperiores. Ratione.
+    </p>
+    <br><br>
+    <p style="text-align: justify;border: 5px solid rgb(0, 255, 153); padding: 15px;">Lorem ipsum dolor sit, amet
+        consectetur adipisicing elit.
+        Eligendi, quaerat repellendus! Quae animiea
+        reprehenderit praesentium sit minima
+        consectetur provident soluta autem laudantium cupiditate quam, veritatis, reiciendis sunt velit hic!Lorem ipsum,
+        dolor sit amet consectetur
+        adipisicing elit. Facere, eum ipsum, nemo officia incidunt rerum cupiditate consectetur corrupti nihil assumenda
+        <span> nam quae. Magnam voluptas quia
+            soluta dolorum animi ab repellat Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam eos, quo,
+            cum veritatis vitae,</span> nostrum rerum molestiae ad eligendi odit officia nihil provident facilis?
+        Facilis, facere!
+        Optio ea molestiae saepe.
+        Nemo voluptatibus perferendis, illum alias voluptate cum rem porro eos dolore. Beatae optio dicta quisquam
+        numquam tenetur, eligendi nesciunt minima
+        porro corporis autem dolores suscipit sint, natus sunt mollitia consequuntur?hjfty
+    </p>
+    <br><br>
+    <table border="1px" cellspacing="5px" cellpadding="10px">
+        <caption><b> Time table </b></caption>
+        <tr>
+            <th>Day</th>
+            <th>1</th>
+            <th>2</th>
+            <td rowspan="5">B <br>r <br>e <br>a <br>k <br></td>
+            <th>3</th>
+            <th>4</th>
+            <td rowspan="5">L <br>u <br>n <br>c <br>h <br></td>
+            <th>5</th>
+            <th>6</th>
+            <td rowspan="5">B <br>r <br>e <br>a <br>k <br>2 <br></td>
+            <th>7</th>
+            <th>8</th>
+        </tr>
+        <tr>
+            <td>Mon</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+        </tr>
+        <tr>
+            <td>Tue</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+        </tr>
+        <tr>
+            <td>Wed</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+        </tr>
+        <tr>
+            <td>Thu</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+            <td>Mat</td>
+            <td>Eng</td>
+            <td>Sci</td>
+            <td>Tam</td>
+        </tr>
+
+    </table>
+    <br>
+    <br>
+    <hr>
+    <div class="rgf">
+        <div id="textt"><b> Registration Form</b></div>
+        <form action="google">
+            <label for="fname">Enter first name :</label>
+            <input type="text" name="fname" id="fname" placeholder="First name" required>
+            <br>
+            <label for="lname">Enter lastname :</label>
+            <input type="text" name="lname" id="lname" placeholder="Last name">
+            <br>
+            <label for="mail">Enter mail ID :</label>
+            <input type="email" name="mail" id="mail" placeholder="Email" required>
+            <br>
+            <label for="pwd">Enter password :</label>
+            <input type="password" name="pwd" id="pwd" placeholder="password" required>
+            <br>
+            <label for="num">Enter num :</label>
+            <input type="number" name="num" id="num" placeholder="Number" required>
+            <br>
+            <label for="tm">Enter time :</label>
+            <input type="time" name="tm" id="tm" placeholder="Time" required>
+            <br>
+            <label for="select"> Select one :</label>
+            <select name="selects" id="select">
+                <option value="s"> S</option>
+                <option value="M"> M</option>
+                <option value="L"> L</option>
+                <option value="XL"> XL</option>
+            </select>
+            <br>
+            <label for="">Select one language :</label>
+            <br>
+            <input type="radio" name="sub" id="tl" value="tl" checked>
+            <label for="tl">Tamil</label>
+            <br>
+            <input type="radio" name="sub" id="eh" value="eh">
+            <label for="eh">English</label>
+            <br>
+            <label for="bk">I like bike</label>
+            <input type="checkbox" name="bk" id="bk" value="bike" checked>
+            <br>
+            <label for="cr">I like car</label>
+            <input type="checkbox" name="cr" id="cr" value="cr">
+            <br>
+            <label for="files">Select Your CV :</label>
+            <input type="file" id="files" value="files">
+            <br><br>
+            <input type="reset">
+            <br>
+            <input id="submitt" type="submit" value="Confirm">
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <form action="https://www.google.com/search">
+        <input type="text" placeholder="Type here to search" name="q">
+        <button>Click to search</button>
+        <br>
+        <br>
+    </form>
+    <hr>
+    <br>
+    <label for="textareaa">Enter something....</label><br>
+    <textarea rows="6" cols="15" id="textareaa" placeholder="Type anything"></textarea>
+    <hr>
+    <br>
+    <br>
+    <div id="position">
+        <h6 class="position2">Engineers</h6>
+        <img src="me_image.jpg" alt="Mechanical Engineers">
+    </div>
+    <br><br>
+    <p> Some links :</p>
+    <div id="container">
+        <ol>
+            <li> <a href="https://www.heromotocorp.com/" target="_blank">Bikes</a></li>
+            <li> <a href="https://www.google.com" target="_blank">Google</a></li>
+        </ol>
+    </div>
+    <br>
+    <p class="float"><img src="Natureimage.jpg" alt="Beauty"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Accusamus quisquam consequatur, optio id aspernatur ipsa exercitationem pariatur nemo asperiores tempora
+        mollitia perspiciatis accusantium aut autem, aliquam architecto expedita aliquid esse.
+        Laborum ipsum vero ullam enim fugiat impedit optio neque veniam vel, molestiae laudantium eligendi tenetur fuga
+        architecto quae magnam porro delectus sapiente. Minus placeat eum at unde perferendis aperiam autem?</p>
+    <br><br>
+    <div class="opacity">
+        <img src="Natureimage.jpg" alt="Nature" height="100px" width="180px">
+        <p>This imgage is shown when hovered</p>
+    </div>
+    <hr>
+    <br><br>
+    <marquee class="marq" behavior=" alternate" direction="right" width="100%" bgcolor="lightblue"> Karthick</marquee>
+</body>
+
+</html>
